@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe33f98a750b8c5a51b30c78bd3fab21",
+    "content-hash": "af4a0f10eb33bbbdbed108e1211f0015",
     "packages": [
         {
             "name": "brick/math",
@@ -980,6 +980,84 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "josezenem/laravel-make-migration-pivot",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/josezenem/laravel-make-migration-pivot.git",
+                "reference": "4da4e79fe28eb97da12591a3149b2a361034320e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/josezenem/laravel-make-migration-pivot/zipball/4da4e79fe28eb97da12591a3149b2a361034320e",
+                "reference": "4da4e79fe28eb97da12591a3149b2a361034320e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0|^10.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0|^8.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Josezenem\\LaravelMakeMigrationPivot\\LaravelMakeMigrationPivotServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelMakeMigrationPivot": "Josezenem\\LaravelMakeMigrationPivot\\Facades\\LaravelMakeMigrationPivot"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Josezenem\\LaravelMakeMigrationPivot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Jimenez",
+                    "email": "jose@jimenez.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make Laravel pivot tables using the new Laravel 9 closure migrations.",
+            "homepage": "https://github.com/josezenem/laravel-make-migration-pivot",
+            "keywords": [
+                "josezenem",
+                "laravel",
+                "laravel migrations",
+                "laravel-make-pivot",
+                "migration pivot"
+            ],
+            "support": {
+                "issues": "https://github.com/josezenem/laravel-make-migration-pivot/issues",
+                "source": "https://github.com/josezenem/laravel-make-migration-pivot/tree/1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/josezenem",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-02-06T20:58:36+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2941,6 +3019,66 @@
                 }
             ],
             "time": "2023-01-12T18:13:24+00:00"
+        },
+        {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df",
+                "reference": "b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.14.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-01-27T15:33:45+00:00"
         },
         {
             "name": "symfony/console",
