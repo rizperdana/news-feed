@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\NewsCategoryController;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\NewsSourceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    AuthController,
+    CountryController,
+    NewsDataController,
+    NewsSourceController,
+};
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +25,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/source', [NewsSourceController::class, 'index']);
+Route::get('/countries', [CountryController::class, 'index']);
+Route::get('/countries/{code}', [CountryController::class, 'show']);
+Route::post('/countries/{code}/categories/{categoryName}', [CountryController::class, 'addCategory']);
+Route::delete('/countries/{code}/categories/{categoryName}', [CountryController::class, 'removeCategory']);
 
-Route::get('category', [NewsCategoryController::class, 'index']);
-Route::get('source', [NewsSourceController::class, 'index']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::post('news', [NewsController::class, 'index']);
+    Route::post('/news', [NewsDataController::class, 'index']);
+    Route::get('/country-news/{countryCode}/{page?}', [NewsDataController::class, 'countryNewsData']);
 });
