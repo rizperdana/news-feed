@@ -34,10 +34,12 @@ class NewsDataController extends Controller
         if ($request->get('page')) {
             $page = $request->get('page');
         }
+
         $newsData = $this->newsDataService->getNewsData(
             $request->get('countryCode'),
             $request->get('languageCode'),
             $request->get('category'),
+            $request->get('query'),
             $page
         );
 
