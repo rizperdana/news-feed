@@ -1,0 +1,162 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "NewsFeed API",
+        "description": "This is a news feed api documentation",
+        "contact": {
+            "email": "perdana.rizki16@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api",
+            "description": "NewsFeed API Server"
+        }
+    ],
+    "paths": {
+        "/register": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Register New User",
+                "description": "Register user and retrieve token",
+                "operationId": "userRegister",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "James Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "jamesdoe@fakemail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "confident.folks123!"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register as new user."
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Login New User",
+                "description": "Login user with credential and retrieve token",
+                "operationId": "userLogin",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "jamesdoe@fakemail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "confident.folks123!"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Login user with registered credential and retrieve token."
+                    }
+                }
+            }
+        },
+        "/news": {
+            "post": {
+                "tags": [
+                    "news"
+                ],
+                "summary": "Fetch News",
+                "description": "Fetch news from various source and filter by certain keyword",
+                "operationId": "getNews",
+                "requestBody": {
+                    "description": "Find news with criteria",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "countryCode",
+                                    "languageCode",
+                                    "category"
+                                ],
+                                "properties": {
+                                    "countryCode": {
+                                        "type": "string",
+                                        "example": "us"
+                                    },
+                                    "languageCode": {
+                                        "type": "string",
+                                        "example": "en"
+                                    },
+                                    "category": {
+                                        "type": "string",
+                                        "example": "technology"
+                                    },
+                                    "query": {
+                                        "type": "string",
+                                        "example": "Php"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Fetch news response with criteria."
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        }
+    }
+}

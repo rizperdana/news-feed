@@ -16,6 +16,26 @@ class AuthController extends Controller
         return new UserResource(User::find($id));
     }
 
+    /**
+     * @OA\Post(
+     *     path="/register",
+     *     tags={"auth"},
+     *     operationId="userRegister",
+     *     summary="Register New User",
+     *     description="Register user and retrieve token",
+     *     @OA\Response(response="201", description="Register as new user."),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          description="Pass user credentials",
+     *          @OA\JsonContent(
+     *             required={"name","email", "password"},
+     *             @OA\Property(property="name", type="string",example="James Doe"),
+     *             @OA\Property(property="email", type="string", format="email", example="jamesdoe@fakemail.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="confident.folks123!")
+     *          ),
+     *     )
+     * )
+     */
     public function register(Request $request)
     {
         $rules = [
@@ -43,6 +63,25 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/login",
+     *     tags={"auth"},
+     *     operationId="userLogin",
+     *     summary="Login New User",
+     *     description="Login user with credential and retrieve token",
+     *     @OA\Response(response="201", description="Login user with registered credential and retrieve token."),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          description="Pass user credentials",
+     *          @OA\JsonContent(
+     *             required={"email", "password"},
+     *             @OA\Property(property="email", type="string", format="email", example="jamesdoe@fakemail.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="confident.folks123!")
+     *          ),
+     *     )
+     * )
+     */
     public function login(Request $request)
     {
         $rules = [

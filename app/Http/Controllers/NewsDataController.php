@@ -16,17 +16,26 @@ class NewsDataController extends Controller
     }
 
     /**
-     * Retrieve news data from https://newsdata.io/ based on the given country,
-     * language, and category.
-     *
-     * This function does't use any database informations
-     *
-     * @param string $countryCode
-     * @param string $languageCode
-     * @param string $category
-     * @param int $page
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @OA\Post(
+     *     path="/news",
+     *     operationId="getNews",
+     *     tags={"news"},
+     *     summary="Fetch News",
+     *     description="Fetch news from various source and filter by certain keyword",
+     *     security={ {"bearer": {} }},
+     *     @OA\Response(response="200", description="Fetch news response with criteria."),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          description="Find news with criteria",
+     *          @OA\JsonContent(
+     *             required={"countryCode","languageCode", "category"},
+     *             @OA\Property(property="countryCode", type="string", example="us"),
+     *             @OA\Property(property="languageCode", type="string", example="en"),
+     *             @OA\Property(property="category", type="string", example="technology"),
+     *             @OA\Property(property="query", type="string", example="Php"),
+     *          ),
+     *     )
+     * )
      */
     public function index(Request $request)
     {
