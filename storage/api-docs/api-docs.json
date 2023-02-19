@@ -67,7 +67,7 @@
                 "tags": [
                     "auth"
                 ],
-                "summary": "Login New User",
+                "summary": "Login User",
                 "description": "Login user with credential and retrieve token",
                 "operationId": "userLogin",
                 "requestBody": {
@@ -102,6 +102,26 @@
                         "description": "Login user with registered credential and retrieve token."
                     }
                 }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Logout user account",
+                "description": "Logout current user with given credential",
+                "operationId": "userLogout",
+                "responses": {
+                    "201": {
+                        "description": "Logout current user account given credential"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
             }
         },
         "/news": {

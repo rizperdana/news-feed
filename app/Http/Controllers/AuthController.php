@@ -68,7 +68,7 @@ class AuthController extends Controller
      *     path="/login",
      *     tags={"auth"},
      *     operationId="userLogin",
-     *     summary="Login New User",
+     *     summary="Login User",
      *     description="Login user with credential and retrieve token",
      *     @OA\Response(response="201", description="Login user with registered credential and retrieve token."),
      *     @OA\RequestBody(
@@ -107,6 +107,17 @@ class AuthController extends Controller
         return response($response, 201);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/logout",
+     *     tags={"auth"},
+     *     operationId="userLogout",
+     *     summary="Logout user account",
+     *     security={ {"bearer": {} }},
+     *     description="Logout current user with given credential",
+     *     @OA\Response(response="201", description="Logout current user account given credential")
+     * )
+     */
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
