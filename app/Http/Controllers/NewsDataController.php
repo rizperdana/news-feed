@@ -52,9 +52,7 @@ class NewsDataController extends Controller
             $page
         );
 
-        return response()->json([
-            'news' => $newsData
-        ], 200);
+        return response()->json($newsData, 200);
     }
 
     /**
