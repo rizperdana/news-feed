@@ -32,11 +32,9 @@ Route::get('/countries', [CountryController::class, 'index']);
 Route::get('/countries/{code}', [CountryController::class, 'show']);
 Route::post('/countries/{code}/categories/{categoryName}', [CountryController::class, 'addCategory']);
 Route::delete('/countries/{code}/categories/{categoryName}', [CountryController::class, 'removeCategory']);
-
+Route::post('/news', [NewsDataController::class, 'index']);
+Route::get('/country-news/{countryCode}/{page?}', [NewsDataController::class, 'countryNewsData']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('logout', [AuthController::class, 'logout']);
-
-    Route::post('/news', [NewsDataController::class, 'index']);
-    Route::get('/country-news/{countryCode}/{page?}', [NewsDataController::class, 'countryNewsData']);
+    Route::post('logout', [AuthController::class, 'logout']); 
 });
